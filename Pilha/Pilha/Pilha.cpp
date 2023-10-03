@@ -87,12 +87,34 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL) {
+		topo = novo;
+		topo->prox = NULL;
 
+	}
+	else {
+		novo->prox = topo;
+		topo = novo;
+	}
+	cout << "Elemento inserido!" << endl;
 }
+
+
+
 
 void pop()
 {
-
+	if (topo == NULL) {             
+		cout << "Nao ha elementos na pilha! \n";                                                                      
+		return;
+	}
+	else {
+		NO* aux = topo;
+		topo = topo->prox;
+		cout << "Elemento excluido: " << aux->valor << endl;
+		free(aux);
+		return;
+	}
 	
 
 }
